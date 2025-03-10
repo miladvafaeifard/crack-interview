@@ -1,5 +1,20 @@
 # How to Crack Interviews for Deaf and Hard of Hearing People
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Preparation](#preparation)
+  - [Research the Company](#research-the-company)
+  - [Practice Common Interview Questions](#practice-common-interview-questions)
+  - [Arrange for Accommodations](#arrange-for-accommodations)
+- [During the Interview](#during-the-interview)
+  - [Communication Tips](#communication-tips)
+  - [Show Confidence](#show-confidence)
+- [After the Interview](#after-the-interview)
+  - [Follow Up](#follow-up)
+  - [Reflect and Improve](#reflect-and-improve)
+- [Additional Resources](#additional-resources)
+- [Conclusion](#conclusion)
+
 ## Introduction
 Cracking an interview can be challenging for anyone, but for deaf and hard of hearing individuals, there are additional hurdles to overcome. This guide aims to provide practical tips and strategies to help you succeed in your job interviews.
 
@@ -12,7 +27,13 @@ Cracking an interview can be challenging for anyone, but for deaf and hard of he
 
 ### Practice Common Interview Questions
 - Practice answering common interview questions.
-- Use a mirror or record yourself to improve your signing or speaking skills.
+- Use a mirror or record yourself to improve your signing or writing skills.
+
+#### Skills
+- [Angular](/angular)
+- [NodeJs](/nodejs)
+- [ReactJs](/reactjs)
+- [TypeScript](/typescript)
 
 ### Arrange for Accommodations
 - Inform the employer about your hearing impairment and request necessary accommodations.
