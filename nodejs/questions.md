@@ -1,0 +1,749 @@
+## Crucial Topics
+
+### What is Node.js?
+
+**Node.js** is an open-source, cross-platform JavaScript runtime environment. It allows developers to execute JavaScript on the server side. Node.js is built on the V8 engine, which is developed by Google, and uses an event-driven, non-blocking I/O model, making it suitable for building scalable applications, especially for real-time systems.
+
+### What is package.json?
+
+**`package.json`** is the configuration file in a Node.js project. It contains metadata about the project such as its name, version, description, and scripts. It also includes information about the project's dependencies (`dependencies`) and development dependencies (`devDependencies`).
+
+
+
+### How Event Loop works?
+
+The **Event Loop** is the mechanism that makes Node.js non-blocking. Node.js executes tasks asynchronously using its event loop, and handles requests on a single-threaded architecture. The Event Loop processes tasks from different queues (timers, I/O callbacks, etc.), delegating heavy tasks to worker threads (via libuv) and executing JavaScript callbacks when the operation completes.
+
+
+
+### Is Node.js entirely based on a single-thread?
+
+No, while **Node.js** uses a single-threaded model for its event loop, it utilizes a thread pool internally via the `libuv` library to offload heavy tasks like file I/O, networking, or CPU-intensive computations.
+
+
+
+### What kinds of streams does Node.js have?
+
+**Node.js streams** are used for handling streaming data. The four types of streams are:
+
+- **Readable Streams**: Used for reading data (e.g., `fs.createReadStream`).
+- **Writable Streams**: Used for writing data (e.g., `fs.createWriteStream`).
+- **Duplex Streams**: Used for both reading and writing (e.g., `net.Socket`).
+- **Transform Streams**: Used for modifying or transforming data during streaming (e.g., `zlib.createGzip`).
+
+
+
+### How do you understand the Callback Pattern? What is a callback hell?
+
+The **Callback pattern** is a mechanism where a function is passed as an argument to another function and is called after a certain operation.
+
+**Callback hell** refers to deeply nested callbacks that make code harder to read and debug. It can be avoided using modular coding, Promises, or async/await.
+
+
+
+### What is a Promise?
+
+**Promise** is an object that represents the eventual completion (or failure) of an asynchronous operation. With Promises, you can attach callbacks (`then`, `catch`) after an operation finishes.
+
+
+
+### What states does the Promise have? Can the state be changed once it was fulfilled or rejected?
+
+A **Promise** has the following states:
+
+1. **Pending**: Initial state, operation not completed yet.
+2. **Fulfilled**: Operation successfully completed.
+3. **Rejected**: Operation failed.
+
+Once a promise is fulfilled or rejected, its state cannot change further.
+
+
+
+### What are the purposes for middlewares in Express.js?
+
+**Express.js middlewares** are functions that process requests before sending a response. Purposes include:
+
+- Handling authentication.
+- Logging requests.
+- Parsing request bodies (e.g., `body-parser`).
+- Error handling.
+
+
+
+### What is a test pyramid? How can you implement it regarding HTTP APIs?
+
+A **Test Pyramid** is a testing strategy emphasizing different layers in tests:
+
+- **Unit Tests**: Test individual components of the code.
+- **Integration Tests**: Test components working together.
+- **End-to-end Tests**: Test the entire application workflow.
+
+For HTTP APIs:
+- Write **Unit Tests** for API controllers.
+- Write **Integration Tests** for database/API interaction.
+- Write **End-to-End Tests** for complete workflows.
+
+
+
+### What is Unit-testing? What are the FIRST principles?
+
+**Unit testing** involves testing individual modules or components of software.
+
+**FIRST principles**:
+- **Fast**: Tests should be fast.
+- **Independent**: Tests should not depend on others.
+- **Repeatable**: Results should be consistent after every run.
+- **Self-validating**: Tests should validate correctness automatically.
+- **Timely**: Tests should be written before the code.
+
+
+
+### REST API: What is it?
+
+**REST (Representational State Transfer)** is an architectural style for building web services. REST APIs use HTTP methods and must be stateless.
+
+
+
+### REST API: Name the main HTTP methods. What is the difference between Put and Patch?
+
+Main HTTP methods:
+- **GET**: Retrieve data.
+- **POST**: Create data.
+- **PUT**: Update data (replace entire resource).
+- **PATCH**: Update data (modify specific parts of resource).
+- **DELETE**: Delete data.
+
+
+
+### Explain the MVC model.
+
+**MVC (Model-View-Controller)** is a design pattern:
+1. **Model**: Business logic and data.
+2. **View**: UI representation.
+3. **Controller**: Mediates between Model & View.
+
+
+
+### Name the key principles of OOP?
+
+The four key principles of **Object-Oriented Programming**:
+1. **Encapsulation**: Bundling data and methods.
+2. **Abstraction**: Hiding complex implementation details.
+3. **Inheritance**: Enables code reuse between classes.
+4. **Polymorphism**: Enables methods to behave differently based on context.
+
+
+
+### RDBMS: What is it?
+
+**RDBMS (Relational Database Management System)** is software managing relational databases with structured data organized in tables.
+
+
+
+### How data is stored in RDBMS?
+
+Data is stored in **rows** inside relational tables. Tables have **columns** defining attributes. Each row represents an individual record.
+
+
+
+### How tables can be joined?
+
+Tables can be joined using SQL statements:
+- **INNER JOIN**: Matches records with related data in both tables.
+- **LEFT JOIN**: Includes all rows from the left table and matches from the right.
+- **RIGHT JOIN**: Includes all rows from the right table and matches from the left.
+- **FULL JOIN**: Combines left and right table rows.
+
+
+
+### Explain Transactions and ACID.
+
+**Transaction** refers to a sequence of operations treated as a single unit. **ACID** ensures reliability:
+1. **Atomicity**: Operations are either completed or rolled back.
+2. **Consistency**: Ensures database rules are maintained.
+3. **Isolation**: Transactions don't affect each other.
+4. **Durability**: Changes persist even after failure.
+
+
+
+### What type of indexes do you know? When to use them?
+
+**Types of indexes**:
+1. **Primary Index**: Automatically created for primary keys.
+2. **Unique Index**: Prevents duplicate values.
+3. **Clustered Index**: Physical arrangement of data optimized for efficient retrieval.
+4. **Non-clustered Index**: Logical order of data separated from physical storage.
+
+Use indexes to improve query performance.
+
+
+
+### How to change an already defined table structure with typeorm?
+
+To change a table structure in **TypeORM**, use migration scripts:
+1. Generate migration: `typeorm migration:generate`
+2. Edit schema change commands.
+3. Run migration: `typeorm migration:run`.
+
+
+
+### What is MongoDB?
+
+**MongoDB** is a NoSQL database that stores data in flexible, schema-less documents in BSON format. It is ideal for fast, scalable applications.
+
+
+
+### How scaling of NoSQL and SQL databases differs?
+
+- **NoSQL Scaling**: Horizontal scaling (adding more machines).
+- **SQL Scaling**: Vertical scaling (increasing resources in existing machine).
+
+
+
+### What is JWT? Is it safe to store sensitive information inside JWT?
+
+**JWT (JSON Web Token)** is used for secure data transmission. It includes:
+- **Header**: Metadata.
+- **Payload**: Data.
+- **Signature**: Ensures integrity.
+
+Sensitive information **should not be stored** inside the JWT payload as it can be decoded.
+
+## Frequently Asked Questions
+
+### What are Pure Components?
+
+**Pure Components** in React are components that only re-render when their props or state change. They automatically implement a shallow comparison of props and state to avoid unnecessary rendering. This behavior improves performance.
+
+
+
+### When to use Node.js and when not to use it?
+
+**When to use Node.js:**
+- For building real-time applications (e.g., chat, online games).
+- For I/O-intensive tasks (e.g., APIs, data streaming).
+- When scalability is important.
+
+**When not to use Node.js:**
+- For CPU-intensive tasks, such as machine learning or heavy computations, as Node.js is single-threaded.
+- Applications requiring complex relational operations (use RDBMS instead).
+
+
+
+### What is npm?
+
+**npm (Node Package Manager)** is the default package manager for Node.js. It is used to manage libraries, frameworks, and dependencies for Node.js projects. It enables developers to install, publish, and manage JavaScript packages.
+
+
+
+### What is the difference between Sync vs Async operations?
+
+- **Synchronous Operations**: Block the execution of code until the operation completes.
+- **Asynchronous Operations**: Do not block the execution. The operation continues in the background, allowing the program to proceed.
+
+
+
+### When Streams can be used in Node.js?
+
+**Streams** in Node.js are used for handling large-scale data sequentially. Use them:
+- When reading/writing large files (e.g., `fs.createReadStream`).
+- For HTTP requests and responses (e.g., API streaming data).
+- When compressing/transforming data (e.g., `zlib.createGzip`).
+
+
+
+### What is a Memory Leak? How to prevent it?
+
+**Memory Leak** occurs when allocated memory is not released, causing application performance issues over time. 
+
+**Prevention strategies:**
+- Use proper scoping for variables.
+- Clear timers and event listeners after use.
+- Avoid global objects storing large data.
+
+
+
+### What are the advantages of async/await over Promises?
+
+**Advantages of async/await:**
+- Simplified syntax: Code becomes more readable and sequential.
+- Easier debugging: Errors can be caught using `try...catch`.
+- Handles multiple asynchronous calls more cleanly compared to chained `.then()`.
+
+
+
+### What is Express.js and what is its use?
+
+**Express.js** is a lightweight and flexible web application framework for Node.js. It is used to build:
+- RESTful APIs.
+- Web servers capable of handling HTTP requests.
+
+
+
+### What are the main building blocks of Express.js?
+
+**Main building blocks:**
+1. **Middleware**: Functions executed during request processing.
+2. **Routing**: Defines application endpoint logic.
+3. **Request Object**: Represents HTTP request.
+4. **Response Object**: Sends HTTP responses.
+5. **Error Handling**: Handles runtime exceptions.
+
+
+
+### What is the use of `next()` in Express.js?
+
+The **`next()` function** passes control to the next middleware function in the chain. It is crucial in middleware processing to ensure proper execution flow.
+
+
+
+### What is a Given-When-Then pattern?
+
+**Given-When-Then** is a Behavior-Driven Development (BDD) pattern used for writing test cases:
+- **Given**: Precondition/setup.
+- **When**: Action under test.
+- **Then**: Expected outcome.
+
+
+
+### What are mocks and stubs? How are they used in integration testing?
+
+- **Mocks**: Fake objects controlling the behavior of dependencies during a test.
+- **Stubs**: Fixed responses for method calls.
+
+They are used in integration testing to isolate components and simulate external interactions.
+
+
+
+### REST API: What constraints does REST have?
+
+**REST API constraints**:
+1. **Statelessness**: Server does not maintain client state.
+2. **Client-Server Separation**: Independent layers.
+3. **Cacheability**: Responses must be cacheable where possible.
+4. **Uniform Interface**: Consistent resource representation.
+
+
+
+### REST API: What status should be sent in a response to a create object request?
+
+The response should return **HTTP status 201 (Created)**, indicating the resource was successfully created.
+
+
+
+### What is Dependency Injection?
+
+**Dependency Injection** is a design pattern that provides the required dependencies to an object, rather than having the object instantiate them itself.
+
+
+
+### What is a Layered Architecture? Give a few examples.
+
+**Layered Architecture** organizes software into layers with specific roles. Examples:
+- **Presentation Layer**: UI logic.
+- **Business Logic Layer**: Core rules of the application.
+- **Data Access Layer**: Interaction with the database.
+
+
+
+### What is a normalization concept?
+
+**Normalization** is the process of organizing relational database data to reduce redundancy and ensure data integrity. Common normal forms include:
+- **1NF**: Removes duplications.
+- **2NF**: Removes partial dependencies.
+- **3NF**: Removes transitive dependencies.
+
+
+
+### What table relationships do you know? How to create them?
+
+**Types of Relationships:**
+1. **One-to-One**: Use a foreign key in one table referencing another.
+2. **One-to-Many**: A foreign key maps multiple records in one table to a single record in another.
+3. **Many-to-Many**: Use an intermediate table to map records.
+
+
+
+### What is the difference between DDL and DML?
+
+- **DDL (Data Definition Language)**: Defines database structure (e.g., `CREATE`, `ALTER`, `DROP`).
+- **DML (Data Manipulation Language)**: Manipulates data (e.g., `SELECT`, `INSERT`, `UPDATE`, `DELETE`).
+
+
+
+### How data is organized in MongoDB?
+
+Data in MongoDB is organized in:
+- **Documents**: JSON-like BSON objects.
+- **Collections**: Groups of documents.
+- **Databases**: Groups of collections.
+
+
+
+### What does the BASE stand for?
+
+**BASE** is an architectural principle for NoSQL:
+- **Basically Available**: System guarantees availability.
+- **Soft State**: Client state may change over time.
+- **Eventual Consistency**: Ensures data consistency eventually.
+
+
+
+### How to make a relationship between Documents in MongoDB?
+
+Relationships can be achieved via:
+- **Embedding Documents**: Nest related data.
+- **Referencing Documents**: Store foreign document ID.
+
+
+
+### What is the difference among Encoding, Encryption, and Hashing?
+
+- **Encoding**: Converts data into another format for transmission (e.g., Base64). 
+- **Encryption**: Secures data using keys. Requires decryption using the same key (symmetric) or a paired key (asymmetric).
+- **Hashing**: One-way transformation creating a fixed-length representation.
+
+
+
+### What are the use cases for Encoding, Encryption, and Hashing?
+
+- **Encoding**: Data transfer over non-compatible systems.
+- **Encryption**: Securing sensitive data.
+- **Hashing**: Password storage, data integrity verification.
+
+
+
+### What is HTTPS? How it works?
+
+**HTTPS (Hypertext Transfer Protocol Secure)** uses encryption (via SSL/TLS) to securely transmit data between the client and server. It uses public and private keys for secure communication.
+
+
+
+### What is Authentication and Authorization?
+
+- **Authentication**: Verifies user identity (e.g., username and password).
+- **Authorization**: Grants permissions to users for accessing resources.
+
+
+
+### Name the main advantages of Microservice architecture over Monolith.
+
+Advantages of **Microservice Architecture**:
+- Scalability: Independent scaling of services.
+- Fault Isolation: Failure of one service doesn’t crash the system.
+- Technology Diversity: Each service can use different technology.
+
+
+
+### How do you understand an event-driven architecture? What is a pub-sub pattern?
+
+**Event-Driven Architecture** reacts to events and is asynchronous. Applications use **publish-subscribe (pub/sub)** patterns, where publishers send messages to topics, and subscribers listen to specific events.
+
+Below are the detailed answers for the **Good to Know Areas** section in Markdown format:
+
+
+
+## Good to Know Areas
+
+### What is the difference between dependencies and devDependencies in package.json?
+
+- **dependencies**: Libraries required in production for the application to run. These packages are installed with the `npm install` command by default.
+- **devDependencies**: Libraries only required during development (e.g., testing tools, linters). Installed using `npm install --only=dev`.
+
+In the `package.json` file:
+```json
+"dependencies": {
+  "express": "^4.18.2"
+},
+"devDependencies": {
+  "jest": "^27.4.5"
+}
+```
+
+
+
+### What is the Event Emitter class? How is it related to other classes?
+
+- **`EventEmitter`** is a core class in Node.js that facilitates event-driven programming. It allows objects to emit and listen to events.
+- Classes like `fs.ReadStream` and `http.Server` inherit from **EventEmitter**.
+
+Example usage:
+```javascript
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
+
+emitter.on('event', () => console.log('Event triggered!'));
+emitter.emit('event'); // Outputs: Event triggered!
+```
+
+
+
+### What are the differences between worker thread and child_process?
+
+- **Worker Threads**: Used for running JavaScript in multiple threads. Lightweight and shares the same memory.
+- **Child Processes**: Create separate processes. Heavier as each child gets its own memory.
+
+Use **worker threads** for parallel execution and **child processes** for isolated operations.
+
+
+
+### What is the difference between CommonJS and ES modules?
+
+- **CommonJS**:
+  - Used in older Node.js versions.
+  - Syntax: `require` for importing and `module.exports` for exporting.
+  - Example:
+    ```javascript
+    const moduleA = require('./moduleA');
+    module.exports = { functionA };
+    ```
+
+- **ES Modules (ESM)**:
+  - Native in modern JavaScript.
+  - Syntax: `import` and `export`.
+  - Example:
+    ```javascript
+    import moduleA from './moduleA';
+    export const functionA = () => {};
+    ```
+
+
+
+### How to force Node.js to treat your `.js` files as ES modules?
+
+To force Node.js to treat `.js` files as ES modules, you can:
+1. Add `"type": "module"` in your `package.json`.
+2. Use `.mjs` extension for ES modules.
+
+Example `package.json`:
+```json
+{
+  "type": "module"
+}
+```
+
+
+
+### What is Promisification and when is it used?
+
+**Promisification** transforms a callback-based function into a Promise-based function. 
+
+**Usage**: When working with libraries that only support callbacks, promisification makes it easier to interact using modern `Promise` or `async/await`.
+
+Example:
+```javascript
+const fs = require('fs');
+const util = require('util');
+
+const readFileAsync = util.promisify(fs.readFile);
+
+readFileAsync('./file.txt', 'utf-8').then(console.log).catch(console.error);
+```
+
+
+
+### How can you differentiate an error handling function from a request handler function?
+
+In Express.js:
+- An **error-handling middleware** has four arguments: `(err, req, res, next)` and is used specifically for catching and processing errors.
+- A regular **request handler** has no `err` argument: `(req, res, next)`.
+
+Example:
+```javascript
+// Request Handler
+app.get('/endpoint', (req, res) => res.send('Request handled'));
+
+// Error-Handling Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+```
+
+
+
+### What can be a Provider in NestJS?
+
+In **NestJS**, a **Provider** is a class, service, or factory that can be injected into other components. Providers are declared in the `@Module` decorator under the `providers` array. Examples: services, repositories, and custom utilities.
+
+
+
+### What are the use cases for Pipes in NestJS?
+
+**Pipes** in NestJS are used for:
+1. **Validation**: Ensuring input data meets criteria (e.g., `ValidationPipe`).
+2. **Transformation**: Converting input data into desired format.
+
+Example:
+```typescript
+import { PipeTransform, Injectable } from '@nestjs/common';
+
+@Injectable()
+export class UppercasePipe implements PipeTransform {
+  transform(value: string) {
+    return value.toUpperCase();
+  }
+}
+```
+
+
+
+### Is there a possibility to bind extra logic before/after method execution in NestJS?
+
+Yes, you can bind extra logic using **Interceptors** or **Guards**:
+- **Interceptors**: Modify requests and responses (before/after execution).
+- **Guards**: Add pre-execution logic, like authentication.
+
+
+
+### How are all unhandled exceptions processed in NestJS?
+
+**Unhandled exceptions** are captured by the built-in **Exception Filter** in NestJS. You can also create custom filters by extending the `ExceptionFilter<T>` interface to handle specific error scenarios.
+
+
+
+### What is a Health Check? Why do we need it?
+
+A **Health Check** helps monitor the operational status of a service (e.g., availability of DBs, APIs). It ensures the system is functioning and ready to handle requests.
+
+
+
+### What is a correlation ID? How does it help debug your application?
+
+A **Correlation ID** is a unique identifier for a request that flows through microservices. It helps trace and debug issues effectively by linking logs and metrics to a single user interaction.
+
+
+
+### What test runner libraries do you know?
+
+Popular test runner libraries:
+- **Jest** (JavaScript/Node.js).
+- **Mocha** & **Chai** (JavaScript/Node.js).
+- **Jasmine**.
+- **Cypress** (Frontend and end-to-end testing).
+
+
+
+### REST API: What are the Levels of REST API?
+
+The **Richardson Maturity Model** outlines the levels of REST API design:
+1. **Level 0**: Single URI, single HTTP method.
+2. **Level 1**: Resources (URIs represent objects).
+3. **Level 2**: HTTP Methods (GET, POST, etc.).
+4. **Level 3**: HATEOAS (Hypermedia as the Engine of Application State).
+
+
+
+### What is GraphQL? What are its advantages over REST API?
+
+**GraphQL** is a query language for APIs that retrieves only the required data. 
+
+**Advantages**:
+- Flexible querying compared to REST’s fixed endpoints.
+- Reduces over-fetching/under-fetching of data.
+- Strongly typed schema for predictable queries.
+
+
+
+### What data types are presented in PostgreSQL?
+
+Common PostgreSQL data types:
+1. **Numeric**: `INTEGER`, `BIGINT`, `DECIMAL`.
+2. **String**: `TEXT`, `VARCHAR`.
+3. **Date/Time**: `DATE`, `TIMESTAMP`.
+4. **JSON**: `JSON`, `JSONB`.
+5. **Geospatial**: `POINT`, `GEOMETRY`.
+
+
+
+### What is a subquery?
+
+A **subquery** is an SQL query nested inside another query. It's executed first, and its result is used by the outer query.
+
+Example:
+```sql
+SELECT * FROM Employees WHERE id IN (SELECT employee_id FROM Salaries);
+```
+
+
+
+### What are Lock Levels in PostgreSQL?
+
+**Lock Levels** define the level of restrictions on tables or rows:
+1. **Row-Level Locks**: Blocks only specific rows (e.g., `SELECT FOR UPDATE`).
+2. **Table-Level Locks**: Affects the entire table (e.g., `ACCESS EXCLUSIVE` lock).
+
+
+
+### What is ORM? What problems does it solve?
+
+**ORM (Object Relational Mapping)** abstracts database operations using objects/models. It solves:
+- Complexity in SQL queries.
+- Cross-database compatibility.
+- Redundant boilerplate code.
+
+Example libraries: Sequelize, TypeORM.
+
+
+
+### What is the Query Builder?
+
+A **Query Builder** is a tool provided by ORMs to programmatically construct SQL queries using methods and objects, rather than writing raw SQL.
+
+
+
+### What are Active Record and Data Mapper patterns?
+
+- **Active Record Pattern**: Models have methods to persist themselves (used in Rails/ActiveRecord).
+- **Data Mapper Pattern**: Separates business logic from persistence logic. Used in TypeORM.
+
+
+
+### What is the difference between Raw Entities and Entities?
+
+- **Raw Entities**: Result from a database query (unmapped data).
+- **Entities**: Objects mapped using ORM models, containing logic and relationships.
+
+
+
+### How to process tables with a lot of data inside with TypeORM?
+
+Use techniques such as:
+- Batch Processing: Divide execution into smaller chunks.
+- Query Streams: Retrieve data incrementally.
+
+
+
+### How do you understand symmetric and asymmetric encryption?
+
+- **Symmetric Encryption**: Uses a single key for encryption and decryption (e.g., AES).
+- **Asymmetric Encryption**: Uses a key pair (public and private keys). The public key encrypts, and the private key decrypts (e.g., RSA).
+
+
+
+### What is the difference between private and public key?
+
+- **Public Key**: Shared publicly and used for encryption.
+- **Private Key**: Kept secret and used for decryption.
+
+
+
+### What types of Authentication do you know? When to use them?
+
+**Authentication Types**:
+1. **API Key**: For simple applications.
+2. **Session-Based**: For web applications.
+3. **Token-Based (e.g., JWT)**: For distributed systems.
+4. **OAuth**: For third-party integrations.
+5. **Biometric**: For high-security needs.
+
+
+
+### What is a 3-tier WEB Application? Are the tiers logical or physical?
+
+A **3-tier Web Application** includes:
+1. **Presentation Layer**: Frontend (UI/UX).
+2. **Business Logic Layer**: Backend (API/logic).
+3. **Data Layer**: Database.
+
+The tiers can be either **logical** or **physical**, depending on deployment.
