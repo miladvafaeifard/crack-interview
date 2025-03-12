@@ -1,5 +1,7 @@
 # ReactJs Tricky Questions and Answers
 
+Sometimes, even with many years of experience in ReactJs, we encounter tricky questions that we can't answer expressively. To crack the interview, it's crucial to practice and write about these topics.
+
 ## Crucial Topics
 
 ### React Basics

@@ -1,5 +1,7 @@
 # Angular Interview Questions and Answers
 
+Sometimes, even with many years of experience in Angular, we encounter tricky questions that we can't answer expressively. To crack the interview, it's crucial to practice and write about these topics.
+
 ## Crucial Topics
 
 ### What is the difference between component and directive?

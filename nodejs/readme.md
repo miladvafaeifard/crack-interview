@@ -1,6 +1,6 @@
 # Node.js Interview Preparation
 
-Sometimes, even with many years of experience in TypeScript, we encounter tricky questions that we can't answer expressively. To crack the interview, it's crucial to practice and write about these topics.
+Sometimes, even with many years of experience in NodeJs, we encounter tricky questions that we can't answer expressively. To crack the interview, it's crucial to practice and write about these topics.
 
 ## Crucial Topics
 
